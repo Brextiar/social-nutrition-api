@@ -23,8 +23,10 @@ parameters:
         - ../config
         - ../src
         - ../public
+        - ../tests
 
     excludePaths:
+        - ../src/Service/PHPStan
 
     # https://phpstan.org/config-reference#vague-typehints
     checkMissingIterableValueType:           true # https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type

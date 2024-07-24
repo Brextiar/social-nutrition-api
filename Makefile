@@ -46,3 +46,9 @@ grumphp: ## run
 stan: ## analyse
 	$(PHPSTAN) analyse -l max -c configurations/.phpstan.neon --memory-limit 1G
 	@echo "PHPStan analysis completed with exit code $$?"
+
+## ——— Test —————————————————————————————————————————————
+run-tests: ## run all tests
+	php bin/phpunit
+new-test: ## create new test
+	$(PHP_CONSOLE) make:test
