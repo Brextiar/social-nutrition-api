@@ -26,10 +26,6 @@ jobs:
       # Checkout du code source
       - uses: actions/checkout@v4
 
-      # Donner les permissions d'exécution pour le fichier Symfony console
-      - name: Grant execute permissions for Symfony console
-        run: chmod +x bin/console
-
       # Copier le fichier .env.test.local s'il n'existe pas
       - name: Copy .env.test.local
         run: php -r "file_exists('.env.test.local') || copy('.env.test', '.env.test.local');"
@@ -59,7 +55,10 @@ jobs:
         env:
           DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
         run: vendor/bin/phpunit
-
+      # Donner les permissions d'exécution pour le fichier Symfony console
+      - name: Grant execute permissions for Symfony console
+        run: chmod +x bin/console
+        
       # Analyse statique du code avec PHPStan
       - name: Static analysis of PHP code (PHPStan)
         run: vendor/bin/phpstan analyse -l max -c configurations/.phpstan.neon --memory-limit 1G
