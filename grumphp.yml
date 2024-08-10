@@ -43,7 +43,10 @@ grumphp:
         stylelint: ~
         xmllint: ~
         yamllint: ~
-
+        shell:
+            scripts:
+                - 'php vendor/bin/phpstan analyse -l max -c configurations/.phpstan.neon --memory-limit 1G'
+                - '@echo "PHPStan analysis completed with exit code $$?"'
     fixer:
         enabled: true
         fix_by_default: true
