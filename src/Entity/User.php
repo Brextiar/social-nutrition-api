@@ -30,7 +30,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private array $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string|null The hashed password
      */
     #[ORM\Column]
     private ?string $password = null;
@@ -46,6 +46,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $subscriptionDate = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $lastLogin = null;
 
     /**
      * @return int|null
@@ -218,6 +224,46 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getSubscriptionDate(): ?\DateTimeInterface
+    {
+        return $this->subscriptionDate;
+    }
+
+    /**
+     * @param \DateTimeInterface $subscriptionDate
+     *
+     * @return $this
+     */
+    public function setSubscriptionDate(\DateTimeInterface $subscriptionDate): static
+    {
+        $this->subscriptionDate = $subscriptionDate;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getLastLogin(): ?\DateTimeInterface
+    {
+        return $this->lastLogin;
+    }
+
+    /**
+     * @param \DateTimeInterface $lastLogin
+     *
+     * @return $this
+     */
+    public function setLastLogin(\DateTimeInterface $lastLogin): static
+    {
+        $this->lastLogin = $lastLogin;
 
         return $this;
     }
