@@ -26,7 +26,7 @@ class Ingredient
 
     #[ORM\Column]
     #[Assert\NotNull]
-    #[Assert\PositiveOrZero]
+    #[Assert\Positive]
     #[Assert\Type('integer')]
     private ?int $weight = null;
 

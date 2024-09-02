@@ -54,6 +54,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeInterface $lastLogin = null;
 
     /**
+     * User constructor.
+     */
+    public function __construct()
+    {
+        $this->subscriptionDate = new \DateTime();
+    }
+
+    /**
      * @return int|null
      */
     public function getId(): ?int

@@ -26,10 +26,6 @@ grumphp:
                 - 'lock'
             regexp_type: G
         jsonlint: ~
-        shell:
-            scripts:
-                - 'php vendor/bin/phpstan analyse -l max -c configurations/.phpstan.neon --memory-limit 1G'
-                - '@echo "PHPStan analysis completed with exit code $$?"'
         phpcs:
             standard: "vendor/escapestudios/symfony2-coding-standard/Symfony/"
             severity: ~

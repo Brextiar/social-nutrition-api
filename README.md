@@ -4,7 +4,8 @@ It's an api application to serve Social-Nutrition, a social network for sharing 
 
 ## Requirements
 PHP 8.3
-Composer
+Composer 
+Symfony 6.4
 
 ## Install
 Clone the repository and run `composer install`
