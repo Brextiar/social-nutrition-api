@@ -26,6 +26,8 @@ s-start: ## -> start symfony server
 	$(SYMFONY_BIN) server:start
 s-stop: ## -> stop symfony server
 	$(SYMFONY_BIN) server:stop
+test: ## -> make:test
+	$(SYMFONY_CONSOLE) make:test
 ## —————————————————————————————————————————————————————————————————
 ## ——— Doctrine ————————————————————————————————————————————————————
 ddc: ## -> doctrine:database:create

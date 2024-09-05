@@ -30,6 +30,10 @@ class Ingredient
     #[Assert\Type('integer')]
     private ?int $weight = null;
 
+    #[ORM\ManyToOne(inversedBy: 'ingredients')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Recipe $recipe = null;
+
     /**
      * @return int|null
      */
@@ -74,6 +78,26 @@ class Ingredient
     public function setWeight(int $weight): static
     {
         $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * @return Recipe|null
+     */
+    public function getRecipe(): ?Recipe
+    {
+        return $this->recipe;
+    }
+
+    /**
+     * @param Recipe|null $recipe
+     *
+     * @return            $this
+     */
+    public function setRecipe(?Recipe $recipe): static
+    {
+        $this->recipe = $recipe;
 
         return $this;
     }
